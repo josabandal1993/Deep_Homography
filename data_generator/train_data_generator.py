@@ -132,7 +132,6 @@ def main(_):
     train_img_list = load_data(dir_train)
     train_model = DataSet(train_img_list)
     for i in range(iter_max):
-        tb = time.time()
         x_train, y_train = train_model.next_batch()
         y_train = np.reshape(y_train, [-1, 8])        
         train = {'features': x_train, 'labels': y_train}
