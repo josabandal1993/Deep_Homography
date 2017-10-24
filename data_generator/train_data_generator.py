@@ -135,7 +135,7 @@ def main(_):
         x_train, y_train = train_model.next_batch()
         y_train = np.reshape(y_train, [-1, 8])        
         train = {'features': x_train, 'labels': y_train}
-        pickle.dump(train, open("../train_data/train_"+str(i)+".p", "wb"))
+        pickle.dump(train, open("../data_train/train_"+str(i)+".p", "wb"))
  
         print("Saving in pickle format."+str(i))
 
