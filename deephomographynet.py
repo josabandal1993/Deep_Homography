@@ -10,13 +10,13 @@ from keras.optimizers import SGD
 from keras.callbacks import ModelCheckpoint, ReduceLROnPlateau, LearningRateScheduler
 import time
 import os
-import math
+import random
 
 batch_size = 64
 dropout = 0.5
-epochs = 12 
-steps_per_epoch = 7900
-test_samp = 5000
+epochs = 12 #12
+steps_per_epoch = 7900#7900
+test_samp = 5000#5000
 
 time1 = time.time()
 
@@ -47,10 +47,12 @@ def train_generator(batch_size):
 			y_train = train['labels']
 			x_train = x_train.astype('float32') / 255
 			y_train = y_train.astype('float32') / 32
+			random_list = np.arange(100)
+			np.random.shuffle(random_list)
 			for j in range(100):
-				yield x_train[j*batch_size:(j+1)*batch_size], y_train[j*batch_size:(j+1)*batch_size]
-			print("  ",(m+1)*100," Iterations Completed")
-			m=m+1
+				yield x_train[random_list[j]*batch_size:(random_list[j]+1)*batch_size], y_train[random_list[j]*batch_size:(random_list[j]+1)*batch_size]
+			print("  ",(m+1)*100," Iterations have been passed")
+			m =m+1
 
 def lr_schedule(epoch):
 	lr = 5e-3
@@ -61,25 +63,13 @@ def lr_schedule(epoch):
 	print("Learning rate: ", lr)
 	return lr
  	
-def euclidean_loss(y_true, y_pred):
-	global batch_size
-	return 0.5*(K.sum(K.square(y_pred - y_true), axis=-1, keepdims=True))
-
-def euclidean_distance(y_true, y_pred):
-	global batch_size
-	return K.sqrt(K.maximum(K.sum(K.square(y_true - y_pred), axis=-1, keepdims=True), K.epsilon()))
-
 class LossHistory(keras.callbacks.Callback):
 	def on_train_begin(self, logs={}):
 		self.losses = []
 	def on_batch_end(self, batch, logs={}):
 		self.losses.append(logs.get('loss'))
 
-
-###############Start of the Model######################
-
 input_shape = (128, 128, 2)
-
 inputs = Input(shape = input_shape)
 
 y = Conv2D(filters = 64, kernel_size = 3, strides = (1,1), padding = 'same', name = 'conv1')(inputs)
@@ -125,7 +115,7 @@ y = Dropout(dropout, name = 'dropout1')(y)
 
 y = Dense(1024, name = 'fc1', activation = 'relu')(y)
 y = Dropout(dropout, name = 'dropout2')(y)
-y_out = Dense(8, name = 'fc2', activation= 'relu')(y)
+y_out = Dense(8, name = 'fc2')(y)
 
 model = Model(inputs = inputs, outputs = y_out)
 
@@ -150,4 +140,5 @@ model.fit_generator(train_generator(batch_size), epochs=epochs,steps_per_epoch=s
 					validation_data = val_generator(batch_size), validation_steps = 100,
 					callbacks = callbacks, shuffle=False)
 
+np.savetxt('losses.out',history.losses)
 print("/nTotal training time = %.3f"%((time.time()-time1)/60),"mins")
