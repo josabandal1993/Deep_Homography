@@ -26,6 +26,8 @@ To generate the dataset used in the paper, download the the <a href="http://coco
 </table>
 
 ## Training
+Run deephomographynet.py(make sure you have already generated the training and validation data). The training was done in a single GTX 980 Ti GPU for about 8 hours with a total number of 94800 iterations with 64 image pairs per iteration as the batch size. Stochastic gradient descent (SGD) with momentum of 0.9(same as the paper) was used with base learning rate of 0.005 and decreases by a factor of 10 every 31600 iterations or 1 epoch. Since the network is a regresion network, mean_square_error was used as the loss function for the model. 
+
 <table style="width:100%">
   <tr>
     <td>Total params:</td>
