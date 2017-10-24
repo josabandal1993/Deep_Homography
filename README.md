@@ -4,24 +4,25 @@ This project is keras implementtion of <a href="https://arxiv.org/pdf/1606.03798
 To generate the dataset used in the paper, download the the <a href="http://cocodataset.org/#download">MSCOCO dataset</a>[train2014, val2014, test2014]. Then run the python data generator codes found in the data_generator folder.
 <table style="width:100%">
   <tr>
-    <th>Firstname</th>
-    <th>Lastname</th> 
-    <th>Age</th>
+    <th>Dataset Generated</th>
+    <th>Number of image pairs</th>
+    <th>Samples per image</th>
   </tr>
   <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
+    <td>Training</td>
+    <td>505,600</td>
+    <td>8</td>
   </tr>
   <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
+    <td>Validation</td>
+    <td>6400</td>
+    <td>8</td>
   </tr>
   <tr>
-    <td>John</td>
-    <td>Doe</td>
-    <td>80</td>
+    <td>Testing</td>
+    <td>5000</td>
+    <td>1</td>
   </tr>
 </table>
+
 ## Training
