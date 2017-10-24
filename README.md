@@ -26,7 +26,18 @@ To generate the dataset used in the paper, download the the <a href="http://coco
 </table>
 
 ## Training
-Total params: 34,195,336
-Trainable params: 34,193,800
-Non-trainable params: 1,536
+<table style="width:100%">
+  <tr>
+    <td>Total params:</td>
+    <td>34,195,336</td>
+  </tr>
+  <tr>
+    <td>Trainable params:</td>
+    <td>34,193,800</td>
+  </tr>
+  <tr>
+    <td>Non-trainable params:</td>
+    <td>1,536</td>
+  </tr>
+</table>
 
