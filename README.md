@@ -26,3 +26,7 @@ To generate the dataset used in the paper, download the the <a href="http://coco
 </table>
 
 ## Training
+Total params: 34,195,336
+Trainable params: 34,193,800
+Non-trainable params: 1,536
+
