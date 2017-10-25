@@ -47,5 +47,5 @@ Run deephomographynet.py(make sure you have already generated the training and v
 <center><img src="Documentation/LossesWithLearningRatedeacy.png" alt="Girl in a jacket" style="width:500px;height:500px;" align="middle"></center>
 
 ## Test Result
-<center><img src="Documentation/CornerError.png" alt="Girl in a jacket" style="width:500px;height:500px;" align="middle"></center>
+<center><img src="Documentation/CornerError.png" alt="Girl in a jacket" style="width:100px;height:100px;" align="middle"></center>
 
