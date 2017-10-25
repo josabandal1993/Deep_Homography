@@ -12,7 +12,7 @@ import math
 from keras.models import load_model
 
 test_samp = 5000#5000
-model = load_model("saved_models/deephomography.00.h5")
+model = load_model("saved_models/deephomography.11.h5") #change to your directory
 
 filename = "data_test/test_0.p"
 file = open(filename,"rb")
