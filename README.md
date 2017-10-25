@@ -48,5 +48,4 @@ Run deephomographynet.py(make sure you have already generated the training and v
 
 ## Test Result
 In the testing, 5000 image pairs were randomly generated from the test2014 MSCOCO dataset. Mean Corner Error = 14.39 pixels (image size is 320 x240).
-<center><img src="Documentation/CornerError.png" alt="Girl in a jacket" style="width:100px;height:100px;" align="middle"></center>
-
+<center><img src="Documentation/Mean_corner_error12.png" alt="Girl in a jacket" style="width:100px;height:100px;" align="middle"></center>
