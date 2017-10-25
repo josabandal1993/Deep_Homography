@@ -43,3 +43,5 @@ Run deephomographynet.py(make sure you have already generated the training and v
   </tr>
 </table>
 
+###Loss with respect to training epoch
+<img src="Documentation/LossesWithLearningRatedeacy.png" alt="Girl in a jacket" style="width:500px;height:600px;">
